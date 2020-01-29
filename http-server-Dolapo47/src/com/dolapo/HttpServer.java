@@ -44,9 +44,6 @@ public class HttpServer {
                 }
                 headers++;
                 System.out.printf("Client: %s%n", message);
-                if (message.equals("quit")) {
-                    message = "Thanks for your time...";
-                } else {
                     if (!socket.isClosed()) {
                         StringBuilder displayMessage = new StringBuilder();
                         if (index.equals("/")) {
@@ -64,12 +61,10 @@ public class HttpServer {
                     } else {
                         System.out.println("Connection to client is closed!");
                     }
-                }
                 quit = true;
             }
-
         } catch (IOException e) {
-            Logger.getLogger(e.getMessage());
+            e.printStackTrace();
         }
 
     }
